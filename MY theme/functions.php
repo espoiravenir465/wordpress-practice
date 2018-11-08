@@ -95,6 +95,7 @@ function mythumb( $size ) {
 
 //カスタムメニュー
 register_nav_menu( 'sitenav', 'サイトナビゲーション');
+register_nav_menu( 'pickupnav', 'おすすめ記事');
 
 
 //トグルボタン
@@ -106,7 +107,7 @@ add_action( 'wp_enqueue_scripts', 'navbtn_scripts');
 //前後の記事に関するメタデータの出力を禁止
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head',10,0);
 
-//クローラーからのアクセスを判明
+//クローラーからのアクセスを判別
 function is_bot(){
   $ua =$_SERVER['HTTP_USER_AGENT'];
 
