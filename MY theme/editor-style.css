@@ -20,7 +20,7 @@ p {
   p {
     font-size:14px;
   }
-
+}
   /*小見出し*/
 
   h2 {
@@ -30,7 +30,7 @@ p {
     padding-bottom:5px;
     border-bottom:solid 2px #00a0e9;
     font-size:24px;
-    clear:both
+    clear:both;
   }
 
   h2:before {
@@ -66,7 +66,7 @@ p {
      padding-left:6px;
      font-size:15px;
    }
-
+}
    /*補足情報*/
 
    .point {

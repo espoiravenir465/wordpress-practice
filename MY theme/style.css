@@ -124,9 +124,25 @@ header,footer,.container, .sub-header{
 }
 
 .gaiyou a:hover {
-  background-color: #eeeeee
+  background-color: #eeeeee;
 }
 
+.gaiyou a:after {
+  content:"";
+  display:block;
+  clear:both;
+}
+
+.gaiyou img {
+  float:left;
+  width:200px;
+}
+
+.gaiyou .text {
+  float:none;
+  width:auto;
+  margin-left:230px;
+}
 .gaiyou h1 {
   margin-top:0;
   margin-bottom:10px;
@@ -138,6 +154,77 @@ header,footer,.container, .sub-header{
   font-size:14px;
 }
 
+.gaiyou .kiji-date {
+  margin-bottom:8px;
+}
+
+@media (max-width:599px){
+  .gaiyou a {
+    padding:10px 0;
+  }
+  .gaiyou img {
+    width:100px;
+  }
+  .gaiyou .text {
+    margin-left:110px;
+  }
+  .gaiyou h1 {
+    font-size:16px
+  }
+ .gaiyou p {
+   visibility:hidden;
+   height:0;
+ }
+ .gaiyou .kiji-date {
+   margin-bottom:0;
+ }
+}
+
+/*概要（大サイズ）*/
+.gaiyou-large a{
+  display:block;
+  padding:20px 0;
+  border-bottom:dotted 2px #dddddd;
+  color:#000000;
+  text-decoration:none;
+}
+
+.gaiyou-large:first-child a {
+  padding-top:0;
+}
+
+.gaiyou-large a:hover{
+  background-color: #eeeeee;
+}
+
+.gaiyou-large h1 {
+margin-top: 10px;
+margin-bottom: 10px;
+font-size: 26px;
+}
+
+.gaiyou-large p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.gaiyou-large .kiji-date {
+  margin-bottom: 8px;
+}
+
+.gaiyou-large .thumb {
+  width:100%;
+  height:350px;
+  background-size:cover;
+  background-position: 50% 50%;
+}
+
+@media (max-width:599px){
+  .gaiyou-large a {padding:10px 0}
+  .gaiyou-large h1 {font-size:18px}
+  .gaiyou-large p {font-size:12px}
+  .gaiyou-large .thumb {height:200px}
+}
 /*..........記事.............*/
 
 /*記事*/
@@ -220,7 +307,7 @@ blockquote:after {
   padding-bottom:5px;
   border-bottom:solid 2px #00a0e9;
   font-size:24px;
-  clear:both
+  clear:both;
 }
 
 .kiji h2:before {
@@ -485,7 +572,7 @@ blockquote:after {
 }
 
 .share-gp {
-  background-color: #dd4b39
+  background-color: #dd4b39;
 }
 
 @media(max-width:599px) {
@@ -496,6 +583,73 @@ blockquote:after {
   .share li a {
     padding:8px 10px;
   }
+}
+
+/*ページネーション*/
+
+.pagination {
+  margin:40px 0 30px;
+  text-align:center;
+}
+.pagination ul {
+  display:inline-block;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.pagination li a,
+.pagination li > span {
+  display:block;
+  margin:0 5px;
+  padding:6px 8px;
+  border:solid 1px #cccccc;
+  color:#000000;
+  font-size:14px;
+  text-decoration:none;
+}
+
+.pagination li >span {
+  background-color:#efefef;
+}
+
+.pagination li a:hover {
+  background-color:#eeeeee;
+}
+
+.pagination ul:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+
+.pagination li {
+  float:left;
+  width:auto;
+}
+
+/*記事一覧のページネーション*/
+.pagination-index li .dots{
+  padding:6px 2px;
+  border-color:transparent;
+  background-color:transparent;
+}
+
+@media (max-width:599px) {
+  .pagination-index li a,
+  .pagination-index li > span
+  {margin:0;
+  padding:6px 7px;
+border-left:none;
+font-size:12px;
+}
+.pagination-index li:first-child a,
+.pagination-index li:first-child > span
+{border-left:solid 1px #cccccc}
+
+.pagination-index li .dots {
+  border-right-color:#cccccc;
+}
 }
 /*..........サイドバー......*/
 
@@ -508,7 +662,7 @@ blockquote:after {
   font-size:18px;
 }
 
-.mumenu ul {
+.mymenu ul {
   margin:0;
   padding:0;
   list-style:none;
@@ -516,14 +670,48 @@ blockquote:after {
 
 .mymenu li a {
   display:block;
-  pading:10px 5px;
+  padding:10px 5px;
   color:#000000;
   font-size:14px;
   text-decoration:none;
 }
 
 .mymenu li a:hover {
-  background-color: #eeeeee
+  background-color: #eeeeee;
+}
+
+/*サムネイル画像を付けたメニューデザイン*/
+
+.mymenu-thumb li a {
+  padding:5px 0;
+  border-bottom:dotted 1px #dddddd;
+  color:#2288bb;
+}
+
+.mymenu-thumb li a:after {
+  content:"";
+  display:block;
+  clear:both;
+}
+
+.mymenu-thumb li .thumb {
+  float:left;
+  width:60px;
+  height:60px;
+  background-size:cover;
+  background-position: 50% 50%;
+}
+
+.mymenu-thumb li .text {
+  float:none;
+  width:auto;
+  margin-left:75px;
+}
+
+.mymenu-thumb li span {
+  display:block;
+  color:#666666;
+  font-size:12px;
 }
 
 /*.............画像..................*/
@@ -612,4 +800,126 @@ iframe {
   left:0;
   width:100%;
   height:100%;
+}
+
+/*........カテゴリー/タグ.........*/
+.contents > h1 {
+  margin-top:0;
+  font-size:34px
+}
+
+@media (max-width:599px) {
+  .contents > h1 {
+    font-size:22px;
+  }
+  .archive .bread li:last-child {
+    text-indent:0;
+  }
+}
+
+/*..............ナビゲーションメニュー............*/
+
+#mainmenu {
+  display:none;
+}
+.mainmenu ul {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.mainmenu li a {
+  display:block;
+  padding:10px 5px;
+  color:#000000;
+  font-size:14px;
+  text-decoration:none;
+}
+
+.mainmenu li a:hover {
+  background-color:#eeeeee;
+}
+
+/*トグルボタン*/
+
+.header-inner {
+  position:relative;
+
+}
+
+#navbtn {
+  position:absolute;
+  top:15px;
+  right:0;
+  padding:6px 12px;
+  border:solid 1px #aaaaaa;
+  border-radius:5px;
+  background-color:#ffffff;
+  cursor:pointer;
+}
+
+#navbtn:hover {
+  background-color: #dddddd;
+}
+
+#navbtn:focus {
+  outline:none;
+}
+
+#navbtn i {
+  color:#888888;
+  font-size:18px;
+}
+
+#navbtn span {
+  display:inline-block;
+  text-indent:-9999px;
+}
+
+@media (min-width:768px){
+  /*サイト名とナビゲーションメニューを横に並べる設定*/
+  .header-inner:after {
+    content:"";
+    display:block;
+    clear:both;
+  }
+
+  .site {
+    float:left;
+    width:auto;
+  }
+
+  .sitenav {
+    float:right;
+    width:auto;
+  }
+  /*ナビゲーションメニューのリンクを横に並べる設定*/
+
+  #mainmenu {
+    display:block !important;
+  }
+
+  .mainmenu {
+    margin-top:10px;
+  }
+
+  .mainmenu ul:after {
+    content:"";
+    display:block;
+    clear:both;
+  }
+
+  .mainmenu li {
+    float:left;
+    width:auto;
+  }
+
+  .mainmenu li a {
+    padding:10px 15px;
+  }
+
+  /*トグルボタン*/
+  #navbtn {
+    display:none;
+  }
 }

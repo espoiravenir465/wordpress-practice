@@ -74,5 +74,51 @@ function add_stylemenu( $buttons ){
 add_filter( 'mce_buttons_2', 'add_stylemenu' );
 
 //エディタスタイルシート
-add_editor_style(get_template_directory_uri() . '/editor-style.css?ver=' . date('U') );
-add_editor_style('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+add_editor_style();
+add_editor_style( '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
+
+//サムネイル画像
+function mythumb( $size ) {
+  global $post;
+
+  if( has_post_thumbnail() ) {
+    $postthumb = wp_get_attachment_image_src ( get_post_thumbnail_id(), $size );
+    $url = $postthumb[0];
+  } elseif( preg_match( '/wp-image-(\d+)/s', $post ->post_content,$thumbid ) ) {
+    $postthumb = wp_get_attachment_image_src( $thumbid[1], $size);
+    $url = $postthumb[0];
+  }else {
+    $url = get_template_directory_uri() . '/picnic.jpg' ;
+  }
+  return $url;
+}
+
+//カスタムメニュー
+register_nav_menu( 'sitenav', 'サイトナビゲーション');
+
+
+//トグルボタン
+function navbtn_scripts(){
+    wp_enqueue_script ( 'navbtn-script', get_template_directory_uri() .'/navbtn.js', array('jquery'));
+}
+add_action( 'wp_enqueue_scripts', 'navbtn_scripts');
+
+//前後の記事に関するメタデータの出力を禁止
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head',10,0);
+
+//クローラーからのアクセスを判明
+function is_bot(){
+  $ua =$_SERVER['HTTP_USER_AGENT'];
+
+  $bots=array(
+    "googlebot",
+    "msnbot",
+    "yahoo"
+  );
+  foreach( $bots as $bot ) {
+    if (stripos ( $ua,$bot ) !== false){
+      return true;
+    }
+  }
+  return false;
+}
