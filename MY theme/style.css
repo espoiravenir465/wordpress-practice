@@ -62,17 +62,18 @@ header,footer,.container, .sub-header{
                 }
 
 .contents {float:left;
-          width:70%;
+          width:100%;
+          margin-right:-300px
         }
 
  .sub {float:left;
-      width:30%;
+      width:300px;
     }
 
 
-/*コンンテンテツとサイドーバーに間隔*/
+/*コンンテンテツとサイドーバーの間隔*/
 .contents {
-  padding-right:50px;
+  padding-right:350px;
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
   box-sizing:border-box;
@@ -863,6 +864,11 @@ font-size:12px;
   display:inline-block;
   color:#2288bb;
   text-decoration:none;
+}
+
+/*広告*/
+.myad {
+  text-align:center;
 }
 /*.............画像..................*/
 
