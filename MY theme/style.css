@@ -870,6 +870,28 @@ font-size:12px;
 .myad {
   text-align:center;
 }
+
+/*...............固定ページ................*/
+
+/*コンテンツメニュー*/
+
+.mymenu-page {
+  border:solid 2px #dddddd;
+}
+
+.mymenu-page h2 {
+  margin:0;
+  padding:10px;
+}
+
+.mymenu-page li a {
+  padding:20px 10px;
+  border-bottom:solid 1px #dddddd;
+}
+
+.mymenu-page li:last-child a {
+  border:none;
+}
 /*.............画像..................*/
 
 /*画像のキャプション*/
