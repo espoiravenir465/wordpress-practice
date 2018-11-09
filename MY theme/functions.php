@@ -123,3 +123,17 @@ function is_bot(){
   }
   return false;
 }
+
+//ウィジェットエリア
+register_sidebar( array (
+  'id' => 'submenu',
+  'name' => 'サブメニュー',
+  'description' => 'サイドバーに表示するウィジェットを指定',
+  'before_widget' => '<aside id="%1$s" class="mymenu widget %2$s">',
+  'after_widget' => '</aside>',
+  'before_title' => '<h2 class="widgettitle">',
+  'after_title' => '</h2>'
+));
+
+//検索フォーム
+add_theme_support( 'html5',array( 'search-form'));
